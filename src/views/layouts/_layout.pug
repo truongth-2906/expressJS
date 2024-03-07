@@ -1,0 +1,53 @@
+doctype html
+html(lang="vi")
+
+	//- Variables to set active page in sidebar
+	block variables
+		- var activePage = 'dashboard';
+		- var activeGroup = 'none';
+
+	head
+		meta(name="description", content="Vali is a responsive and free admin theme built with Bootstrap 4, SASS and PUG.js. It's fully customizable and modular.")
+
+		// Twitter meta
+		meta(property="twitter:card", content="summary_large_image")
+		meta(property="twitter:site", content="@pratikborsadiya")
+		meta(property="twitter:creator", content="@pratikborsadiya")
+
+		// Open Graph Meta
+		meta(property="og:type", content="website")
+		meta(property="og:site_name", content="Vali Admin")
+		meta(property="og:title", content="Vali - Free Bootstrap 4 admin theme")
+		meta(property='og:url', content='http://pratikborsadiya.in/blog/vali-admin')
+		meta(property='og:image', content='http://pratikborsadiya.in/blog/vali-admin/hero-social.png')
+		meta(property="og:description", content="Vali is a responsive and free admin theme built with Bootstrap 4, SASS and PUG.js. It's fully customizable and modular.")
+
+		block title
+			title Vali Admin - Free Bootstrap 4 Admin Template
+
+		include ../includes/_head.pug
+
+	body.app.sidebar-mini.tile.p-0.mb-0
+		.overlay(style="display: none;")
+			.m-loader.mr-4.
+				<svg class="m-circular" viewBox="25 25 50 50">
+					<circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="4" stroke-miterlimit="10"/>
+				</svg>
+			h3.l-text Loading
+
+		// Navbar
+		include ../includes/_header.pug
+
+		// Sidebar menu
+		include ../includes/_sidebar.pug
+
+		main.app-content
+			block content
+
+		//- Javascripts
+		include ../includes/_javascript.pug
+		
+		// Page specific javascripts
+		block specific-js
+
+		block after-script

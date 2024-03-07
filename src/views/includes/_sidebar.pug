@@ -1,0 +1,162 @@
+.app-sidebar__overlay(data-toggle="sidebar")
+aside.app-sidebar
+
+    .app-sidebar__user
+        div
+            p.app-sidebar__user-name #{req.session.display_name}
+            p.app-sidebar__user-designation Game Service Admin
+
+    ul.app-menu
+        li
+            a.app-menu__item(href='/' class={ 'active': activePage == 'homeIndex' })
+                i.app-menu__icon.fa.fa-dashboard
+                span.app-menu__label Trang chủ
+        li
+            a.app-menu__item(href='/ranks' class={ 'active': activeGroup == 'rank' })
+                i.app-menu__icon.fa.fa-sort
+                span.app-menu__label Xếp hạng
+
+        li.treeview(class={ 'is-expanded': activeGroup === 'user' || activeGroup === 'system' || activeGroup === 'community' || activeGroup === 'household' })
+            a.app-menu__item(href='#', data-toggle='treeview')
+                i.app-menu__icon.fa.fa-laptop
+                span.app-menu__label Người dùng
+                i.treeview-indicator.fa.fa-angle-right
+            ul.treeview-menu
+                li
+                    a.treeview-item(href='/users' class={ 'active': activeGroup == 'user' })
+                        i.icon.fa.fa-user-o
+                        | Người dùng
+                li
+                    a.treeview-item(href='/households' class={ 'active': activeGroup == 'household' })
+                        i.icon.fa.fa-home
+                        | Hộ kinh doanh
+                li
+                    a.treeview-item(href='/systems' class={ 'active': activeGroup == 'system' })
+                        i.icon.fa.fa-bank
+                        | Hệ thống
+                li
+                    a.treeview-item(href='/communities' class={'active': activeGroup == 'community'})
+                        i.icon.fa.fa-users
+                        | Cộng đồng
+
+        li.treeview(class={ 'is-expanded': activeGroup === 'dataUser' || activeGroup === 'dataSystem' || activeGroup === 'dataCommunity' || activeGroup === 'dataHousehold' })
+            a.app-menu__item(href='#', data-toggle='treeview')
+                i.app-menu__icon.fa.fa-database
+                span.app-menu__label Dữ liệu
+                i.treeview-indicator.fa.fa-angle-right
+            ul.treeview-menu
+                li
+                    a.treeview-item(href='/data-users' class={ 'active': activeGroup == 'dataUser' })
+                        i.icon.fa.fa-user-o
+                        | Người dùng
+                li
+                    a.treeview-item(href='/data-households' class={ 'active': activeGroup == 'dataHousehold' })
+                        i.icon.fa.fa-home
+                        | Hộ kinh doanh
+                li
+                    a.treeview-item(href='/data-systems' class={ 'active': activeGroup == 'dataSystem' })
+                        i.icon.fa.fa-bank
+                        | Hệ thống
+                li
+                    a.treeview-item(href='/data-communities' class={'active': activeGroup == 'dataCommunity'})
+                        i.icon.fa.fa-users
+                        | Cộng đồng
+
+        li.treeview(class={ 'is-expanded': activeGroup === 'prize' || activeGroup === 'inventoryRequest' || activeGroup === 'exchangeHistory' || activeGroup === 'awardHistory'})
+            a.app-menu__item(href='#', data-toggle='treeview')
+                i.app-menu__icon.fa.fa-toolbox
+                span.app-menu__label Vật phẩm
+                i.treeview-indicator.fa.fa-angle-right
+            ul.treeview-menu
+                li
+                    a.treeview-item(href='/prizes' class={ 'active': activeGroup === 'prize' })
+                        i.icon.fa.fa-trophy
+                        | Vật phẩm
+                li
+                    a.treeview-item(href='/inventories-requests' class={ 'active': activeGroup === 'inventoryRequest' })
+                        i.icon.fa.fa-pencil
+                        | Sử dụng vật phẩm
+                li
+                    a.treeview-item(href='/exchange-histories' class={ 'active': activeGroup === 'exchangeHistory' })
+                        i.icon.fa.fa-clock-rotate-left
+                        | Lịch sử quy đổi
+                li
+                    a.treeview-item(href='/award-histories' class={ 'active': activeGroup === 'awardHistory' })
+                        i.icon.fa.fa-award
+                        | Lịch sử trao tặng
+
+        li.treeview(class={ 'is-expanded': activeGroup === 'eventTemplate' || activeGroup === 'event' || activeGroup === 'arena' || activeGroup === 'arenaUser'})
+            a.app-menu__item(href='#', data-toggle='treeview')
+                i.app-menu__icon.fa.fa-calendar-o
+                span.app-menu__label Sự kiện
+                i.treeview-indicator.fa.fa-angle-right
+            ul.treeview-menu
+                li
+                    a.treeview-item(href='/template-events' class={'active': activeGroup === 'eventTemplate'})
+                        i.icon.fa.fa-calendar
+                        | Sự kiện mẫu
+                li
+                    a.treeview-item(href='/events' class={'active': activeGroup === 'event'})
+                        i.icon.fa.fa-calendar-o
+                        | Sự kiện
+                li
+                    a.treeview-item(href='/arenas' class={'active': activeGroup === 'arena'})
+                        i.icon.fa.fa-handshake-o
+                        | Đấu trường
+                li
+                    a.treeview-item(href='/arena-users' class={ 'active': activeGroup === 'arenaUser' })
+                        i.icon.fa.fa-sharp.fa-user
+                        | Người dùng đấu trường
+
+        li.treeview(class={'is-expanded': activeGroup === 'attendance' || activeGroup === 'attendanceHistory'})
+            a.app-menu__item(href='#', data-toggle='treeview')
+                i.app-menu__icon.fa.fa-square-check
+                span.app-menu__label Báo danh
+                i.treeview-indicator.fa.fa-angle-right
+            ul.treeview-menu
+                li
+                    a.treeview-item(href='/attendances' class={ 'active': activeGroup === 'attendance' })
+                        i.icon.fa.fa-cog
+                        | Cài đặt báo danh
+                li
+                    a.treeview-item(href='/attendance-histories' class={ 'active': activeGroup === 'attendanceHistory' })
+                        i.icon.fa-solid.fa-clock-rotate-left
+                        | Lịch sử báo danh
+
+        li.treeview(class={'is-expanded': activeGroup === 'challengeRoom' || activeGroup === 'challenge' || activeGroup === 'challengeRoomConfig'})
+            a.app-menu__item(href='#', data-toggle='treeview')
+                i.app-menu__icon.fa.fa-khanda
+                span.app-menu__label Thách đấu
+                i.treeview-indicator.fa.fa-angle-right
+            ul.treeview-menu
+                li
+                    a.treeview-item(href='/challenge-room-configs' class={ 'active': activeGroup === 'challengeRoomConfig' })
+                        i.icon.fa.fa-key
+                        | Cấu hình
+                li
+                    a.treeview-item(href='/challenges' class={ 'active': activeGroup === 'challenge' })
+                        i.icon.fa.fa-cog
+                        | Cài đặt thách đấu
+                li
+                    a.treeview-item(href='/challenge-rooms' class={'active': activeGroup === 'challengeRoom'})
+                        i.icon.fa-solid.fa-clock-rotate-left
+                        | Lịch sử phòng thách đấu
+
+        li.treeview(class={'is-expanded': activeGroup === 'music' || activeGroup === 'currency' || activeGroup === 'config'})
+            a.app-menu__item(href='#', data-toggle='treeview')
+                i.app-menu__icon.fa.fa-cog
+                span.app-menu__label Cài đặt
+                i.treeview-indicator.fa.fa-angle-right
+            ul.treeview-menu
+                li
+                    a.treeview-item(href='/setting/music' class={'active': activeGroup === 'music'})
+                        i.icon.fa.fa-music
+                        | Nhạc nền
+                li
+                    a.treeview-item(href='/currencies' class={ 'active': activeGroup === 'currency' })
+                        i.icon.fa-solid.fa-dollar-sign
+                        | Đơn vị tiền tệ
+                li
+                    a.treeview-item(href='/config-indexes' class={ 'active': activeGroup === 'config' })
+                        i.icon.fa.fa-key
+                        | Cài đặt chỉ số
