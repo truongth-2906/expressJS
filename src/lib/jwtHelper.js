@@ -8,7 +8,7 @@ module.exports = {
 
   authenticateToken: (req, res, next) => {
     const authHeader = req.headers["authorization"];
-    const token = authHeader && authHeader.split(" ")[1];
+    const token = authHeader?.split(' ').pop();
     if (token == null)
       return res.status(401).json(response.fail("Unauthorized", null));
 
